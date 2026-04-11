@@ -1,0 +1,214 @@
+.page {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #38bdf8;
+  margin: 0 0 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.panel {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.panel-header h2 {
+  margin: 0;
+}
+
+.panel-header p {
+  margin: 4px 0 0;
+  color: #cbd5f5;
+  font-size: 0.9rem;
+}
+
+.status {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+.form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.field-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.field-grid input {
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  padding: 8px;
+}
+
+.symptoms {
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.symptom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.symptom-chip {
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.symptom-chip input {
+  width: 16px;
+  height: 16px;
+}
+
+.helper-text {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: #a5b4fc;
+}
+
+.form button {
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #f87171;
+  margin: -8px 0 0;
+}
+
+.results-panel .placeholder {
+  color: #94a3b8;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.risk-card {
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.risk-card .label {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #93c5fd;
+}
+
+.risk-card .value {
+  font-size: 2.5rem;
+  margin: 6px 0 0;
+}
+
+.risk-card .level {
+  margin: 6px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.risk-card .level.low {
+  color: #34d399;
+}
+
+.risk-card .level.moderate {
+  color: #facc15;
+}
+
+.risk-card .level.high {
+  color: #f87171;
+}
+
+.care-plan {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.care-plan h3 {
+  margin: 0 0 8px;
+}
+
+.care-plan ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #cbd5f5;
+}
+
+.timeline-panel {
+  position: relative;
+}
+
+.timeline-panel .panel {
+  min-height: 320px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "UserResearch",
+  "description": "Collect and normalize the raw interview notes for later summarization.",
+  "parameters": ["notes"],
+  "durationMs": 400
+}

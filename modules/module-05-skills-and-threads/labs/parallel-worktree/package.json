@@ -1,0 +1,12 @@
+{
+  "name": "parallel-worktree-lab",
+  "version": "1.0.0",
+  "description": "Simulates Codex skills and threads running in parallel.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node parallel-runner.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

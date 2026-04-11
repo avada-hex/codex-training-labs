@@ -1,0 +1,6 @@
+{
+  "name": "CleanupNotes",
+  "description": "Spot-check the corpus for duplicates and extraneous info.",
+  "parameters": ["rawNotes"],
+  "durationMs": 300
+}

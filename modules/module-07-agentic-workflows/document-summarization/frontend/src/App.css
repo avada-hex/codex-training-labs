@@ -1,0 +1,150 @@
+.app-shell {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 16px 0 24px;
+}
+
+.hero .eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0 0 12px;
+}
+
+.hero .lede {
+  margin: 0;
+  color: #4b5563;
+  max-width: 770px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.1);
+  padding: 24px;
+}
+
+.panel-header {
+  margin-bottom: 16px;
+}
+
+.panel-header h2 {
+  margin: 0 0 6px;
+}
+
+.panel-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.status {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.summarizer-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.summarizer-form input[type='file'] {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+}
+
+.summarizer-form textarea {
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.summarizer-form .error {
+  color: #b91c1c;
+  margin: -4px 0 12px;
+  font-size: 0.9rem;
+}
+
+.summarizer-form button {
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 1rem;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summarizer-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.summarizer-form button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+}
+
+.summary-preview {
+  margin-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.summary-preview h3 {
+  margin: 0 0 10px;
+}
+
+.summary-preview p {
+  margin: 0;
+  color: #111827;
+}
+
+.summary-preview .placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.timeline-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.timeline-panel .panel-header {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 960px) {
+  .dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

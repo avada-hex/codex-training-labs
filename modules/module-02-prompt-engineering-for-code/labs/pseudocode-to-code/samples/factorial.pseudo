@@ -1,0 +1,7 @@
+SET n TO 6
+SET result TO 1
+FOR idx FROM 1 TO n
+  SET result TO result * idx
+END FOR
+PRINT "Factorial result:"
+PRINT result

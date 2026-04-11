@@ -1,0 +1,27 @@
+@backend_dotnet_HostAddress = http://localhost:5200
+
+POST {{backend_dotnet_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "userId": "charlie",
+  "password": "NewSecret123"
+}
+
+###
+
+POST {{backend_dotnet_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "userId": "alice",
+  "password": "Pa$$word123"
+}
+
+###
+
+GET {{backend_dotnet_HostAddress}}/api/auth/me
+Authorization: Bearer <token>
+Accept: application/json
+
+###

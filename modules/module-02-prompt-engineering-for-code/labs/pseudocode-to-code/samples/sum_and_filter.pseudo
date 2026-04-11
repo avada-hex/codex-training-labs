@@ -1,0 +1,12 @@
+// This pseudocode filters a list and sums the values that meet a threshold.
+SET numbers TO [3, 8, 12, 5, 20]
+SET threshold TO 10
+SET total TO 0
+FOR idx FROM 0 TO LENGTH(numbers) - 1
+  SET value TO numbers[idx]
+  IF value >= threshold THEN
+    ADD value TO total
+  END IF
+END FOR
+PRINT "Filtered sum:"
+PRINT total

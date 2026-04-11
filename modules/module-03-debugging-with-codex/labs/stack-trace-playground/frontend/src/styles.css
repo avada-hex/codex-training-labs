@@ -1,0 +1,111 @@
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.app-shell {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0;
+}
+
+h1 {
+  margin: 0.25rem 0 0.4rem;
+  font-size: 2rem;
+}
+
+.trace-input {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid #cbd5f5;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+button {
+  font-family: inherit;
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.9rem 1.4rem;
+  background: #1d4ed8;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.sample-list {
+  border: 1px dashed #cbd5f5;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  background: #fff;
+}
+
+.sample-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.sample-buttons button {
+  background: #e0f2fe;
+  color: #0f172a;
+  border: 1px solid #bae6fd;
+}
+
+.diagnostic-card {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 0.9rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+.diagnostic-detail {
+  margin-bottom: 1rem;
+}
+
+.diagnostic-detail strong {
+  display: block;
+  color: #475569;
+}
+
+.patch-preview {
+  margin-top: 1rem;
+}
+
+.patch-preview pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+}
+
+.status.error {
+  color: #dc2626;
+  margin-top: 1rem;
+}

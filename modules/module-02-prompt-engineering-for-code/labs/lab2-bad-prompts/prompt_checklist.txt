@@ -1,0 +1,7 @@
+Review each prompt you write or receive with this checklist:
+
+1. **Is the language specific?** Avoid “some code” / “a thing” / “make it better.”
+2. **Is the desired output format clear?** Mention function signature, file type, paragraph count, etc.
+3. **Have you provided necessary context?** Supply data format, constraints, or persona cues.
+4. **Are edge cases and assumptions addressed?** Spell out defaults or error handling rather than leaving them implied.
+5. **Could the prompt be run in one pass?** Break down tasks if the assistant likely needs intermediate steps.

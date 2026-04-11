@@ -1,0 +1,9 @@
+{
+  "name": "CustomerInsights",
+  "description": "Craft an insights brief from fresh customer interviews.",
+  "skills": [
+    "UserResearch",
+    "SummarizeInsights",
+    "FormatReport"
+  ]
+}

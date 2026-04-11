@@ -1,0 +1,17 @@
+SET numbers TO [5, 2, 9, 1, 7, 4]
+SET total TO 0
+SET count TO 0
+FOR idx FROM 0 TO LENGTH(numbers) - 1
+  SET value TO numbers[idx]
+  IF value MOD 2 == 1 THEN
+    ADD value TO total
+    ADD 1 TO count
+  END IF
+END FOR
+IF count == 0 THEN
+  PRINT "No odd numbers."
+ELSE
+  SET average TO total / count
+  PRINT "Average odd number:"
+  PRINT average
+END IF

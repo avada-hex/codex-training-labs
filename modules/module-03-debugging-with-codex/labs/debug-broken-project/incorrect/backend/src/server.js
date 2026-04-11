@@ -1,0 +1,30 @@
+﻿const express = require("express");
+const cors = require("cors");
+
+const app = express();
+app.use(cors());
+// Missing express.json() so req.body will be undefined and destructuring errors out
+
+const users = {
+  learner: "pass123",
+  demo: "codex"
+};
+
+app.post("/login", (req, res) => {
+  const { userId, password } = req.body;
+  if (!userId || !password) {
+    return res.status(400).json({ error: "Enter both user ID and password." });
+  }
+
+  const isValidUser = users[userId] === password;
+  if (!isValidUser) {
+    return res.status(401).json({ error: "Invalid credentials." });
+  }
+
+  return res.json({ message: "Sign in successful" });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(Auth backend (incorrect) listening on port );
+});

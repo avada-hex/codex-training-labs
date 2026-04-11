@@ -1,0 +1,6 @@
+{
+  "name": "FormatReport",
+  "description": "Structure the skill outputs into documents or cards for delivery.",
+  "parameters": ["insights"],
+  "durationMs": 250
+}

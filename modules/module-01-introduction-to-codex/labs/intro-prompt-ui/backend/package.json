@@ -1,0 +1,16 @@
+{
+  "name": "intro-prompt-ui-backend",
+  "version": "1.0.0",
+  "description": "Express API for the intro prompt UI todo list lab",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
