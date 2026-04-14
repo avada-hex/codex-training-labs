@@ -1,0 +1,25 @@
+{
+  "company": "ABC Corp",
+  "currency": "INR",
+  "year": 2025,
+  "financials": [
+    { "month": "January", "revenue": 50000, "expenses": 40000, "profit": 10000 },
+    { "month": "February", "revenue": -15000, "expenses": 30000, "profit": -45000 },
+    { "month": "March", "revenue": 60000, "expenses": 45000, "profit": 15000 },
+    { "month": "April", "revenue": -20000, "expenses": 25000, "profit": -45000 },
+    { "month": "May", "revenue": 70000, "expenses": 50000, "profit": 20000 },
+    { "month": "June", "revenue": -10000, "expenses": 20000, "profit": -30000 },
+    { "month": "July", "revenue": 80000, "expenses": 60000, "profit": 20000 },
+    { "month": "August", "revenue": -5000, "expenses": 15000, "profit": -20000 },
+    { "month": "September", "revenue": 90000, "expenses": 65000, "profit": 25000 },
+    { "month": "October", "revenue": -30000, "expenses": 35000, "profit": -65000 },
+    { "month": "November", "revenue": 75000, "expenses": 50000, "profit": 25000 },
+    { "month": "December", "revenue": -12000, "expenses": 22000, "profit": -34000 }
+  ],
+  "summary": {
+    "totalRevenue": 403000,
+    "totalExpenses": 457000,
+    "netProfit": -54000,
+    "status": "loss"
+  }
+}

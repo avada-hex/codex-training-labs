@@ -1,0 +1,10 @@
+{
+  "status": "error",
+  "code": 400,
+  "message": "Invalid JSON example",
+  "data": {
+    "name": "Pooja",
+    "age": 25,
+    "email": "pooja@example.com"
+  }
+}
