@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
   return res.json({ message: "Sign in successful" });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Auth backend listening on port ${PORT}`);
 });

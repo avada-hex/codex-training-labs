@@ -4,9 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authorization Lab (Incorrect)</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <main class="panel">
+      <h1>Authorization demo</h1>
+      <p>Try learner/pass123 or demo/codex to see the success prompt.</p>
+      <form class="form">
+        <label>
+          User ID
+          <input id="user-id" value="" placeholder="learner" />
+        </label>
+        <label>
+          Password
+          <input id="password" type="password" value="" placeholder="pass123" />
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
+      <div class="status" hidden></div>
+    </main>
+    <script type="module" src="/client.js"></script>
   </body>
 </html>
