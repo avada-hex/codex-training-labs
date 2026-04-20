@@ -291,6 +291,10 @@ The project specification is complete when:
 ```text
 capstone-team-5/
   README.md
+  dataset/
+    patient_details.csv
+    vitals.csv
+    symptoms.csv
   frontend/
   backend/
   database/
@@ -301,3 +305,5 @@ capstone-team-5/
 ## Delivery Summary
 
 This capstone should demonstrate a complete patient-centered clinical decision support workflow: secure access, patient record review, symptom and vital tracking, care plan recommendation, historical dashboard analysis, and patient support communication.
+
+The lab now includes a `dataset/` folder with 200 synthetic patient records split across `patient_details.csv`, `vitals.csv`, and `symptoms.csv` for development and dashboard testing.

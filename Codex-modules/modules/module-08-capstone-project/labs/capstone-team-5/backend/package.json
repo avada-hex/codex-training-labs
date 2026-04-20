@@ -1,0 +1,11 @@
+{
+  "name": "capstone-team-5-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clinical Decision Support System backend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "verify": "node verify-endpoints.js"
+  }
+}

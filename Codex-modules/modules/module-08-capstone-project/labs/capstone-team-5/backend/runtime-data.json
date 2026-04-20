@@ -1,0 +1,75 @@
+{
+  "runtimePatients": [
+    {
+      "patient_id": "P201",
+      "first_name": "Test",
+      "last_name": "Patient",
+      "age": 34,
+      "sex": "Female",
+      "origin": "American",
+      "diet": "Mediterranean",
+      "habits": "Regular exercise",
+      "email": "new.patient.1776666107570@synthetic-health.test",
+      "phone": "+1-555-000-0000",
+      "registration_date": "2026-04-20"
+    }
+  ],
+  "credentials": [
+    {
+      "patient_id": "P201",
+      "email": "new.patient.1776666107570@synthetic-health.test",
+      "salt": "e4844862d3610310792e1014080af40f",
+      "passwordHash": "bde0c98ef6ee1ec7965466beb296ea2effd124ebb88dbfa8e82dc4ecb7b007c564dc37378d0dbed7fe4c1f28da554b691994cee9b73f036b110735f7893319d5"
+    }
+  ],
+  "vitals": [
+    {
+      "vital_id": "V201",
+      "patient_id": "P001",
+      "recorded_at": "2026-04-20T06:21:47.641Z",
+      "temperature_f": 99.4,
+      "heart_rate_bpm": 95,
+      "systolic_bp": 132,
+      "diastolic_bp": 84,
+      "respiratory_rate": 18,
+      "oxygen_saturation": 95,
+      "weight_kg": 44.1,
+      "bmi": 20.3
+    }
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "S201",
+      "patient_id": "P001",
+      "recorded_at": "2026-04-20T06:21:47.650Z",
+      "primary_symptom": "Fatigue",
+      "secondary_symptom": "Headache",
+      "pain_level": 2,
+      "severity": "Mild",
+      "duration_days": 2,
+      "notes": "Verification flow"
+    }
+  ],
+  "carePlanSelections": [
+    {
+      "patient_id": "P001",
+      "care_plan_id": "routine-monitoring",
+      "title": "Routine Monitoring",
+      "selected_at": "2026-04-20T06:21:47.637Z",
+      "explanation": "Recent vitals are available for continued monitoring."
+    }
+  ],
+  "contacts": [
+    {
+      "contact_id": "C1776666107660",
+      "patient_id": "P001",
+      "name": "P001 Support",
+      "email": "patient001@synthetic-health.test",
+      "reason": "General Question",
+      "message": "Need help understanding my care plan.",
+      "submitted_at": "2026-04-20T06:21:47.660Z"
+    }
+  ],
+  "updatedVitals": [],
+  "updatedSymptoms": []
+}
