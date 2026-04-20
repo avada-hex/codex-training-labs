@@ -4,6 +4,8 @@ import { PageShell } from '../components/PageShell';
 const baseMetrics = [
   { label: 'Patients monitored', value: 128, delta: '+12 today', trend: 'Up' },
   { label: 'High-risk alerts', value: 14, delta: '-3 from yesterday', trend: 'Down' },
+  { label: 'Accepted recommendations', value: 92, delta: 'Live total', trend: 'Up' },
+  { label: 'Declined recommendations', value: 18, delta: 'Live total', trend: 'Attention' },
   { label: 'Avg. oxygen saturation', value: '96.8%', delta: '+0.4%', trend: 'Up' },
   { label: 'Avg. heart rate', value: '84 bpm', delta: '-2 bpm', trend: 'Stable' },
   { label: 'Open follow-ups', value: 21, delta: '+5 pending', trend: 'Attention' },
@@ -16,10 +18,38 @@ const initialActivity = [
   ['PT-1003', 'Follow-up consultation', '09:30']
 ];
 
+const declineReasonTemplates = [
+  {
+    reason: 'Felt symptom improvement',
+    share: 0.4,
+    action: 'Reinforce that short-term improvement does not always mean the risk has resolved.'
+  },
+  {
+    reason: 'Preferred self-management',
+    share: 0.3,
+    action: 'Offer a clearer explanation of why the recommendation matters for this profile.'
+  },
+  {
+    reason: 'Follow-up timing conflict',
+    share: 0.2,
+    action: 'Suggest a rescheduled follow-up or alternative care window.'
+  },
+  {
+    reason: 'Plan uncertainty',
+    share: 0.1,
+    action: 'Provide a shorter summary of what the recommendation includes and why it was selected.'
+  }
+];
+
 export function DashboardPage() {
   const [clock, setClock] = useState(new Date());
   const [metrics, setMetrics] = useState(baseMetrics);
   const [activity, setActivity] = useState(initialActivity);
+  const declinedRecommendations = Number(metrics[3].value);
+  const declineReasons = declineReasonTemplates.map((item) => ({
+    ...item,
+    count: Math.max(1, Math.round(declinedRecommendations * item.share))
+  }));
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -43,6 +73,24 @@ export function DashboardPage() {
             };
           }
           if (index === 2) {
+            const accepted = 92 + Math.floor(Math.random() * 5);
+            return {
+              ...metric,
+              value: accepted,
+              delta: `${accepted} accepted today`,
+              trend: 'Up'
+            };
+          }
+          if (index === 3) {
+            const declined = 18 + Math.floor(Math.random() * 4);
+            return {
+              ...metric,
+              value: declined,
+              delta: `${declined} declined today`,
+              trend: 'Attention'
+            };
+          }
+          if (index === 4) {
             return {
               ...metric,
               value: `${96.5 + Math.random() * 1.2}%`,
@@ -50,12 +98,20 @@ export function DashboardPage() {
               trend: 'Up'
             };
           }
-          if (index === 3) {
+          if (index === 5) {
             return {
               ...metric,
               value: `${82 + Math.floor(Math.random() * 4)} bpm`,
               delta: 'Live update',
               trend: 'Stable'
+            };
+          }
+          if (index === 6) {
+            return {
+              ...metric,
+              value: 19 + Math.floor(Math.random() * 4),
+              delta: 'Live update',
+              trend: 'Attention'
             };
           }
           return {
@@ -134,6 +190,61 @@ export function DashboardPage() {
               <td>Critical</td>
               <td>Escalation recommended for active alerts.</td>
             </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section className="card section-card">
+        <h2>Recommendation outcomes</h2>
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Outcome</th>
+              <th>Count</th>
+              <th>Rate</th>
+              <th>Clinical meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Accepted</td>
+              <td>{metrics[2].value}</td>
+              <td>84%</td>
+              <td>Patients are following the suggested care plan.</td>
+            </tr>
+            <tr>
+              <td>Declined</td>
+              <td>{metrics[3].value}</td>
+              <td>16%</td>
+              <td>Patients may need follow-up education or clarification.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section className="card section-card">
+        <h2>Decline reason report</h2>
+        <p className="helper-text">
+          This report helps the care team see why patients declined the suggestion and what follow-up may help.
+        </p>
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Reason</th>
+              <th>Count</th>
+              <th>Share of declines</th>
+              <th>Suggested follow-up</th>
+            </tr>
+          </thead>
+          <tbody>
+            {declineReasons.map((item) => (
+              <tr key={item.reason}>
+                <td>{item.reason}</td>
+                <td>{item.count}</td>
+                <td>{Math.round(item.share * 100)}%</td>
+                <td>{item.action}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
