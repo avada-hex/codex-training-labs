@@ -84,8 +84,8 @@ function getAuthPatientId(request) {
   return verifyToken(header.slice("Bearer ".length));
 }
 
-function createApp() {
-  const store = new DataStore();
+function createApp(options = {}) {
+  const store = options.store || new DataStore(options.dataStoreOptions);
 
   return http.createServer(async (request, response) => {
     if (!request.url) {
@@ -280,8 +280,8 @@ function createApp() {
   });
 }
 
-function startServer(port = Number(process.env.PORT || 3000)) {
-  const server = createApp();
+function startServer(port = Number(process.env.PORT || 3000), options = {}) {
+  const server = createApp(options);
   return new Promise((resolve) => {
     server.listen(port, () => {
       resolve(server);
@@ -289,6 +289,7 @@ function startServer(port = Number(process.env.PORT || 3000)) {
   });
 }
 
+/* c8 ignore next 6 */
 if (require.main === module) {
   startServer().then((server) => {
     const address = server.address();
@@ -299,5 +300,13 @@ if (require.main === module) {
 
 module.exports = {
   createApp,
-  startServer
+  startServer,
+  __private: {
+    createToken,
+    getAuthPatientId,
+    readBody,
+    sendJson,
+    validateRequiredFields,
+    verifyToken
+  }
 };

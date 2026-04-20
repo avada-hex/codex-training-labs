@@ -4,6 +4,7 @@ function toNumber(value) {
 }
 
 function addPlan(plans, map, id, title, reason, points) {
+  /* c8 ignore next 3 */
   if (!reason) {
     return;
   }

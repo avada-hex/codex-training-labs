@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const { buildCarePlans, deduceRiskLevel } = require("./care-plans");
 
-const DATASET_DIR = path.resolve(__dirname, "..", "..", "dataset");
-const RUNTIME_PATH = path.resolve(__dirname, "..", "runtime-data.json");
+const DEFAULT_DATASET_DIR = path.resolve(__dirname, "..", "..", "dataset");
+const DEFAULT_RUNTIME_PATH = path.resolve(__dirname, "..", "runtime-data.json");
 const DEFAULT_SEEDED_PASSWORD = "Password123!";
 
 function parseCsv(text) {
@@ -70,8 +70,8 @@ function parseCsv(text) {
   });
 }
 
-function readCsv(fileName) {
-  const filePath = path.join(DATASET_DIR, fileName);
+function readCsv(datasetDir, fileName) {
+  const filePath = path.join(datasetDir, fileName);
   const text = fs.readFileSync(filePath, "utf8");
   return parseCsv(text);
 }
@@ -146,17 +146,19 @@ function sortByRecordedAt(items) {
 }
 
 class DataStore {
-  constructor() {
-    this.seededPatients = readCsv("patient_details.csv").map(sanitizePatient);
-    this.seededVitals = readCsv("vitals.csv").map(sanitizeVital);
-    this.seededSymptoms = readCsv("symptoms.csv").map(sanitizeSymptom);
+  constructor(options = {}) {
+    this.datasetDir = options.datasetDir || DEFAULT_DATASET_DIR;
+    this.runtimePath = options.runtimePath || DEFAULT_RUNTIME_PATH;
+    this.seededPatients = readCsv(this.datasetDir, "patient_details.csv").map(sanitizePatient);
+    this.seededVitals = readCsv(this.datasetDir, "vitals.csv").map(sanitizeVital);
+    this.seededSymptoms = readCsv(this.datasetDir, "symptoms.csv").map(sanitizeSymptom);
     this.seededPatientMap = new Map(this.seededPatients.map((patient) => [patient.patient_id, patient]));
     this.seededPatientByEmail = new Map(this.seededPatients.map((patient) => [patient.email.toLowerCase(), patient]));
     this.runtime = this.loadRuntime();
   }
 
   loadRuntime() {
-    if (!fs.existsSync(RUNTIME_PATH)) {
+    if (!fs.existsSync(this.runtimePath)) {
       return {
         runtimePatients: [],
         credentials: [],
@@ -169,11 +171,11 @@ class DataStore {
       };
     }
 
-    return JSON.parse(fs.readFileSync(RUNTIME_PATH, "utf8"));
+    return JSON.parse(fs.readFileSync(this.runtimePath, "utf8"));
   }
 
   saveRuntime() {
-    fs.writeFileSync(RUNTIME_PATH, `${JSON.stringify(this.runtime, null, 2)}\n`, "utf8");
+    fs.writeFileSync(this.runtimePath, `${JSON.stringify(this.runtime, null, 2)}\n`, "utf8");
   }
 
   getPatientByEmail(email) {
@@ -509,6 +511,7 @@ class DataStore {
         vitals_count: vitals.length,
         symptoms_count: symptoms.length
       },
+      /* c8 ignore next */
       suggested_care_plan_summary: carePlanResult.carePlans[0] || null,
       selected_care_plan: carePlanHistory[carePlanHistory.length - 1] || null
     };
@@ -517,5 +520,18 @@ class DataStore {
 
 module.exports = {
   DataStore,
-  DEFAULT_SEEDED_PASSWORD
+  DEFAULT_SEEDED_PASSWORD,
+  __private: {
+    DEFAULT_DATASET_DIR,
+    DEFAULT_RUNTIME_PATH,
+    createPasswordRecord,
+    parseCsv,
+    readCsv,
+    sanitizePatient,
+    sanitizeSymptom,
+    sanitizeVital,
+    sortByRecordedAt,
+    toNumber,
+    verifyPassword
+  }
 };

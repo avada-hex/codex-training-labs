@@ -10,14 +10,18 @@ const navItems = [
   { to: '/admin-dashboard', label: 'Dashboard', roles: ['admin'] }
 ];
 
-export function PageShell({ title, description, children }) {
+export function defaultLogoutRedirect(url, locationObject = window.location) {
+  locationObject.assign(url);
+}
+
+export function PageShell({ title, description, children, onLogoutRedirect = defaultLogoutRedirect }) {
   const session = getSession();
   const role = session?.role;
   const visibleNavItems = navItems.filter((item) => !role || item.roles.includes(role));
 
   const handleLogout = () => {
     clearSession();
-    window.location.assign('/login');
+    onLogoutRedirect('/login');
   };
 
   return (

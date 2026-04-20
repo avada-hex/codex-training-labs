@@ -6,6 +6,11 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "verify": "node verify-endpoints.js"
+    "verify": "node verify-endpoints.js",
+    "test": "node --test --experimental-test-isolation=none",
+    "test:coverage": "c8 --check-coverage --statements 96 --branches 96 --functions 96 --lines 96 --include src/*.js --exclude test/*.test.js --reporter text --reporter lcov node --test --experimental-test-isolation=none"
+  },
+  "devDependencies": {
+    "c8": "^11.0.0"
   }
 }
